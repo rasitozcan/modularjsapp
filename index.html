@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Test App</title>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/main.js"></script>
+		<style>
+			div{
+				width: 200px;
+				height: 100px;
+				margin: 10px;
+				padding: 0 10px;
+				float: left;
+				border: 1px solid #ccc;
+			}
+			form{
+				position: absolute;
+				bottom: 30px;
+				right: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div data-module="100">
+			<h4>Module100</h4>
+		</div>
+		<div data-module="100">
+			<h4>Module100</h4>
+		</div>
+		<div data-module="101">
+			<h4>Module101</h4>
+		</div>
+		<div data-module="102">
+			<h4>Module102</h4>
+		</div>
+		<form action="">
+			<input type="number" id="modID">
+			<button type="submit" onclick="addModule(); return false">Add Module</button>
+		</form>
+		<script>
+			$(document).ready(function() {
+				App.init();
+			});
+			addModule = function() {
+				var id = $('#modID').val();
+				if(id){
+					id = id
+				}else{
+					alert('Modul Numarasi giriniz');
+					return false
+				}
+				$('body').append("<div data-module="+id+"><h4>Module"+id+"</h4></div>");
+				App.Utils.renderModules();
+			}
+			// $('div').eq(0).data('moduledetail').info
+			// Diyerek modul info incelenebilir
+		</script>
+	</body>
+	</html>	
