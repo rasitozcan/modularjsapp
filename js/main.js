@@ -1,7 +1,15 @@
+/*
+Modular Application Js. Boilerplate
+@author Rasit Ozcan <ozcanrasit@gmail.com>
+@copyright 2014 Rasit Ozcan <ozcanrasit@gmail.com>
+@license The MIT License (MIT) <http://opensource.org/licenses/MIT/>
+*/
+
 var App = App || {};
 	App.Modules = App.Modules || {};
 	App.Modules.Live = App.Modules.Live || {};
 	App.Utils = App.Utils || {};
+    // TODO:
     //App.UI = App.UI || {};
 
 App.init = function() {
@@ -12,7 +20,6 @@ App.init = function() {
 /*** utils.js start ***/
 App.Utils.renderModules = function() {
 	//var modules 	= $('body').find('*[data-module]');
-
 	// * or div ?
 	var modules 	= $('*').filter(function(){return $(this).data('module')});
 
@@ -27,8 +34,20 @@ App.Utils.renderModules = function() {
                 App.Modules.Live['module' + moduleID + '_' + index] = data;
             } catch(e) {
                 $('*').filter('[data-module = '+moduleID+']').remove();
-                console.log('%c' + e.name + ': ' + e.message + ' | No such module logic as: module' + moduleID, 'background-color: yellow');
+                if(typeof console == "object") console.log('%c' + e.name + ': ' + e.message + ' | No such module logic as: module' + moduleID, 'background-color: yellow');
+
+                // TODO:
+                // exception handler
+                // xhr post data to security monitor
+                // var ExData = {
+                //      'site': window.parent.location.origin
+                //      'url': window.location.href,
+                //      'referrer': document.referrer,
+                //      'trace': e.stack || 'N/A'
+                //      ...
+                // }
             }
+
 		}
 
 	});
