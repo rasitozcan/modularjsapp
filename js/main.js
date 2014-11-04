@@ -70,6 +70,10 @@ App.Utils.getCurrentTime = function() {
 /*** utils.js end ***/
 
 /*** modules.js start ***/
+
+//TODO: Module dependencies
+//nasil yapsam acaba?
+
 App.Modules.module100 = function(el) {
 	//private variables
 	info = {
@@ -78,7 +82,11 @@ App.Modules.module100 = function(el) {
 		name	: "Sth. Calculator",
 		el		: el,
 		inittime: App.Utils.getCurrentTime()
-	}
+	},
+    /*dependencies = {
+        "App.UI.modules" : "custom-checkbox",
+        "App.UI.modules" : "validate"
+    },*/
 	init = function() {
 		el.append("<span>Initialized at "+App.Utils.getCurrentTime()+"</span>");
 		return true;
