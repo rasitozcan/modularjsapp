@@ -1,17 +1,30 @@
-/*
-Modular Application Js. Boilerplate
-@author Rasit Ozcan <ozcanrasit@gmail.com>
-@copyright 2014 Rasit Ozcan <ozcanrasit@gmail.com>
-@license The MIT License (MIT) <http://opensource.org/licenses/MIT/>
-*/
+var APPNAME = (function() {
 
-var App = App || {};
-	App.Modules = App.Modules || {};
-	App.Modules.Live = App.Modules.Live || {};
-	App.Utils = App.Utils || {};
-    // TODO:
-    //App.UI = App.UI || {};
+  var siteInfo = {
+			//NEEDED DYNAMIC INFO, EX: language etc..
+  };
 
-App.init = function() {
-	App.Utils.renderModules();
-};
+  var init = function() {
+    this.Utils.renderModules();
+  };
+
+  return {
+    'Siteinfo': siteInfo,
+    'init': init
+  };
+
+})();
+
+/****************************************
+ *	NAMESPACES
+ ****************************************/
+var APPNAME = APPNAME || {};
+APPNAME.UI = APPNAME.UI || {};
+APPNAME.Modules = APPNAME.Modules || {};
+APPNAME.Modules.Live = APPNAME.Modules.Live || {};
+APPNAME.Utils = APPNAME.Utils || {};
+APPNAME.Utils.Shims = APPNAME.Utils.Shims || {};
+
+$(function() {
+  APPNAME.init();
+});
